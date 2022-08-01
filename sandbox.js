@@ -1,10 +1,10 @@
 const gridSizeButton = document.createElement('button');
 drawGrid();
-function drawGrid(SIZE = 16){
-    const val  = document.querySelector('div.container');
-    if(val){
+function drawGrid(SIZE = 16) {
+    const val = document.querySelector('div.container');
+    if (val) {
         val.remove();
-    } 
+    }
     const container = document.createElement('div');
     const gridContainer = document.createElement('div');
     container.classList.add('container');
@@ -18,11 +18,11 @@ function drawGrid(SIZE = 16){
     gridSizeButton.textContent = 'Grid Size';
     gridSizeButton.style = 'padding: 10px 20px;'
     container.appendChild(gridSizeButton);
-    
-    for (let element = 0; element < SIZE**2; element++){
+
+    for (let element = 0; element < SIZE ** 2; element++) {
         let grid = document.createElement('div');
         grid.classList.add('gridElement');
-        gridContainer.appendChild(grid);    
+        gridContainer.appendChild(grid);
     }
 
     container.appendChild(gridContainer);
@@ -35,15 +35,14 @@ function drawGrid(SIZE = 16){
             event.target.style.backgroundColor = `black`;
         })
     }
-    
+
 }
 
-
-gridSizeButton.addEventListener('click',(event)=>{
-    const size =Number(prompt('Please insert grid size'));
-    if(!(size < 100) || !(size > 0)){
-        alert('size should be grataer than 0 and minor than 100')
-    }else{
+gridSizeButton.addEventListener('click', (event) => {
+    const size = Number(prompt('Please insert grid size'));
+    if (!(size < 100) || !(size > 0)) {
+        alert('size should be greater than 0 and minor than 100')
+    } else {
         drawGrid(size);
     }
 })
