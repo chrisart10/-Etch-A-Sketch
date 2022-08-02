@@ -6,10 +6,15 @@ function drawGrid(SIZE = 16) {
         val.remove();
     }
     const container = document.createElement('div');
-    const gridContainer = document.createElement('div');
+
+    const title = document.createElement('h1');
+    title.textContent = 'Etch-A-Sketch';
+    container.appendChild(title);
+
     container.classList.add('container');
     container.style = `display:flex; flex-flow:column; align-items:center; gap: 20px;`;
 
+    const gridContainer = document.createElement('div');
     gridContainer.classList.add('gridContainer');
     gridContainer.style = `display: grid; width: 960px; height: 960px; border:2px solid gold;
     grid-template-columns: repeat(${SIZE}, 1fr);` // repeat(number of columns/rows, the column width we want);
@@ -31,7 +36,6 @@ function drawGrid(SIZE = 16) {
     const grids = document.querySelectorAll('div.gridElement');
     for (let grid of grids) {
         grid.addEventListener('mousemove', (event) => {
-            event.stopPropagation();
             event.target.style.backgroundColor = `black`;
         })
     }
@@ -40,8 +44,8 @@ function drawGrid(SIZE = 16) {
 
 gridSizeButton.addEventListener('click', (event) => {
     const size = Number(prompt('Please insert grid size'));
-    if (!(size < 100) || !(size > 0)) {
-        alert('size should be greater than 0 and minor than 100')
+    if (!(size < 101) || !(size > 0)) {
+        alert('size should be greater than 0 and equal or minor than 100');
     } else {
         drawGrid(size);
     }
