@@ -1,10 +1,11 @@
 const gridSizeButton = document.createElement('button');
 drawGrid();
 function drawGrid(SIZE = 16) {
-    const val = document.querySelector('div.container');
-    if (val) {
-        val.remove();
+    const containerExistence = document.querySelector('div.container');
+    if (containerExistence) {
+        containerExistence.remove();
     }
+
     const container = document.createElement('div');
 
     const title = document.createElement('h1');
@@ -39,7 +40,6 @@ function drawGrid(SIZE = 16) {
             event.target.style.backgroundColor = `black`;
         })
     }
-
 }
 
 gridSizeButton.addEventListener('click', (event) => {
